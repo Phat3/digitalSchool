@@ -1,0 +1,76 @@
+<div id="homepage-carousel">
+    <div class="container">
+        <div class="homepage-carousel-wrapper">
+            <div class="row">
+                <div class="col-md-6 col-sm-7">
+                    <div class="image-carousel">
+                        <div class="image-carousel-slide"><img src="/img/slide-1.jpg" alt=""></div>
+                        <div class="image-carousel-slide"><img src="/img/slide-2.jpg" alt=""></div>
+                        <div class="image-carousel-slide"><img src="/img/slide-3.jpg" alt=""></div>
+                    </div>
+                    <!--tasti per navigare -->
+                    <div class="customNavigation">
+                      <a class="btn prev"><i class="fa fa-angle-left"></i></a>
+                      <a class="btn next"><i class="fa fa-angle-right"></i></a>
+                    </div>
+
+                </div>
+                <div class="col-md-6 col-sm-5">
+                    <div class="slider-content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1 id="slogan">Join the comunity of modern thinking students</h1>
+                                <h4 id="sub-slogan">Join the comunity of modern thinking students</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--eventi -->
+
+<div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-10">
+            <p>asdasdas</p>
+        </div>
+        <div class="col-sm-1">
+        </div>
+</div>
+
+<script>
+
+    $(document).ready(function() {
+
+             var owl = $(".image-carousel");
+
+             owl.owlCarousel({
+                    items: 1,
+                    autoPlay: true,
+                    stopOnHover: true,
+                    navigation: true,
+                    navigationText : false,
+                    responsiveBaseWidth: ".image-carousel-slide"
+                    //responsiveBaseWidth: ".author"
+                });
+
+             $(".next").click(function(){
+                owl.trigger('owl.next');
+              })
+              $(".prev").click(function(){
+                owl.trigger('owl.prev');
+              })
+
+    });
+
+
+    $(window).load(function(){
+        $('#slogan').delay(600).fadeIn(800);
+        $('#sub-slogan').delay(1000).fadeIn(800);
+    });
+
+</script>
