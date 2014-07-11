@@ -11,9 +11,9 @@ default: &default
 
 development:
   adapter: mysql2
-  database: db_name_dev
-  username: koploper
-  password:
+  database: school
+  username: root
+  password: root
   host: localhost
   socket: /tmp/mysql.sock
 
