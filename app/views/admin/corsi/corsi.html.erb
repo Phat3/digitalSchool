@@ -1,0 +1,103 @@
+<div class="row intestazione">
+    <h3>CORSI</h3>
+</div>
+
+<div class="row ">
+    <a href="/admin/corsiAdd" class="pull-right btn btn-default">Aggiungi</a>
+</div>
+
+ <div class="row piani-list">
+    <div class="col-xs-10">
+    <% @corsi.each do |des| %>
+         <div id="id-<%= des.id %>" class="row piano-element">
+                        <div id="name-<%= des.nome %>"><%= des.nome %></div>
+                       <i class="fa fa-trash-o" onclick="deleteInsegnante(<%= des.id %>)"></i>
+                       <i class="fa fa-pencil-square-o" onclick="editCorso(<%= des.id %>)"></i>
+                       <i class="fa fa-info-circle" onclick="getInfo(<%= des.id %>)"></i>
+        </div>
+    <% end %>
+  </div>
+  <div class="col-xs-2">
+    <% @corsi.each do |des| %>
+         <a href="#" class="btn btn-primary pull-right" style="margin-top: 5px;">Gestisci File</a>
+    <% end %>
+  </div>
+</div>
+
+
+<div id="infoCorso" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Scheda Insegnante</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-xs-6">
+                <label>Nome corso</label>
+                <h4 id="spazio-nome"></h4>
+            </div>
+            <div class="col-xs-6">
+                <div class="col-xs-6">
+                <label>Insegnante</label>
+                <h4 id="spazio-insegnante"></h4>
+            </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6">
+                <label>Classe</label>
+                <h4 id="spazio-classe"></h4>
+            </div>
+            <div class="col-xs-6">
+                <div class="col-xs-6">
+                <label>Piano F.</label>
+                <h4 id="spazio-piano"></h4>
+            </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+             <label>Descrizione</label>
+             <p id="spazio-descrizione"></p>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+<script>
+function getInfo(id){
+
+    $.ajax({
+              url: '/admin/getInfoCorsi',
+              type: 'POST',
+              data: {id: id},
+              success: function(data) {
+                console.log(data)
+                $('#spazio-nome').html(data.corso.nome)
+                $('#spazio-insegnante').html(data.insegnante.nome)
+                $('#spazio-classe').html(data.corso.nome)
+                $('#spazio-piano').html(data.piano.nome)
+                $('#spazio-descrizione').html(data.corso.descrizione)
+
+                $('#infoCorso').modal('show')
+              }
+            });
+
+}
+
+function editCorso(id){
+    window.location.href = "/admin/corsiEdit/" + id
+}
+
+</script>

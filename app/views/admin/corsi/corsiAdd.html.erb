@@ -1,0 +1,58 @@
+<div class="row intestazione">
+    <h3>AGGIUNGI CORSO</h3>
+</div>
+
+<%= form_for :productimages, url: "/admin/aggiungiCorso" do |f| %>
+
+  <div class="form-group">
+    <label >Nome</label>
+    <input type="text" name="nome" class="form-control"  placeholder="Immetti il nome del corso">
+  </div>
+   <div class="form-group">
+   <label for="name">Insegnante</label>
+      <select name="insegnante" class='form-control'>
+                 <option value="" disabled="disabled" selected="selected">Seleziona un insegnante</option>
+                 <% @insegnanti.each do |des| %>
+                      <option value='<%= des.id %>'  ><%= des.nome %></option>
+                  <% end %>
+    </select>
+  </div>
+
+    <div class="form-group">
+     <label for="name">Classe</label>
+      <select name="classe" class='form-control'>
+                 <option value="" disabled="disabled" selected="selected">Seleziona la classe del corso</option>
+                 <% @classi.each do |des| %>
+                      <option value='<%= des.id %>'  ><%= des.nome %></option>
+                  <% end %>
+    </select>
+  </div>
+
+  <div class="form-group">
+     <label for="name">Piano</label>
+      <select name="piano" class='form-control'>
+                 <option value="" disabled="disabled" selected="selected">Seleziona un piano formativo</option>
+                 <% @piani.each do |des| %>
+                      <option value='<%= des.id %>'  ><%= des.nome %></option>
+                  <% end %>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label >Descrizione</label>
+    <textarea id="body" class='textarea-admin' name='descrizione'></textarea>
+  </div>
+  <p>
+      <%= f.submit  'Salva', :class => 'btn btn-primary pull-right' , :style => 'margin-bottom: 20px;'%>
+    </p>
+
+<% end %>
+
+<script type="text/javascript">
+tinymce.init({
+    selector: "textarea",
+    forced_root_block : 'div'
+ });
+</script>
+
+

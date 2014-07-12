@@ -5,7 +5,6 @@ class CreateInsegnantes < ActiveRecord::Migration
       t.text :bio
       t.string :cv
       t.string :foto
-
       t.timestamps
     end
   end
