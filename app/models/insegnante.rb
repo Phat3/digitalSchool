@@ -1,7 +1,7 @@
 class Insegnante < ActiveRecord::Base
 
-    def self.savefile(upload)
-    name =  upload.original_filename
+    def self.savefile(upload, nome)
+    name =  nome
     directory = "public/data/insegnanti"
     #nel caso non esista la creiamo
     Dir.mkdir(directory) unless File.exists?(directory)

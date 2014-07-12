@@ -11,10 +11,45 @@
          <div id="id-<%= des.id %>" class="row piano-element">
                         <div id="name-<%= des.nome %>"><%= des.nome %></div>
                        <i class="fa fa-trash-o" onclick="deleteInsegnante(<%= des.id %>)"></i>
+                       <i class="fa fa-pencil-square-o" onclick="editInsegnante(<%= des.id %>)"></i>
                        <i class="fa fa-info-circle" onclick="getInfo(<%= des.id %>)"></i>
         </div>
     <% end %>
 </div>
+
+
+<div id="infoInsegnanti" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Scheda Insegnante</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-xs-6">
+                <label>Nome e cognome</label>
+                <h4 id="spazio-nome"></h4>
+            </div>
+            <div class="col-xs-6">
+                <img id="spazio-img" class="info-img"src"" />
+            </div>
+        </div>
+        <div class="row">
+             <label>Bio</label>
+             <p id="spazio-bio"></p>
+        </div>
+
+        <div class="row">
+             <a id="spazio-pdf"  href="" target="_target">Vedi CV</a>
+        </div>
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 
 <script>
@@ -29,6 +64,28 @@ function deleteInsegnante(id){
               }
             });
 
+}
+
+function getInfo(id){
+
+    $.ajax({
+              url: '/admin/getInfoInsegnante',
+              type: 'POST',
+              data: {id: id},
+              success: function(data) {
+                console.log(data)
+                $('#spazio-nome').html(data.nome)
+                $('#spazio-bio').html(data.bio)
+                $('#spazio-pdf').attr('href', '/data/insegnanti/' + data.cv)
+                $('#spazio-img').attr('src', '/data/insegnanti/' + data.foto)
+                $('#infoInsegnanti').modal('show')
+              }
+            });
+
+}
+
+function editInsegnante(id){
+    window.location.href = "/admin/insegnantiEdit/" + id
 }
 
 </script>
