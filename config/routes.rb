@@ -11,6 +11,14 @@ Rails.application.routes.draw do
 
   post '/admin/eliminaPiano', to: 'admin/piani#eliminaPiano'
 
+  get '/admin/corsi', to: 'admin/corsi#corsi'
+
+  get '/admin/tipiCorsi', to: 'admin/tipocorso#index'
+
+  post '/admin/aggiungiTipo', to: 'admin/tipocorso#aggiungiTipo'
+
+  post '/admin/eliminaTipo', to: 'admin/tipocorso#eliminaTipo'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

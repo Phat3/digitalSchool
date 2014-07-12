@@ -1,5 +1,5 @@
 <div class="row intestazione">
-    <h3>PIANI FORMATIVI</h3>
+    <h3>INSEGNANTI</h3>
 </div>
 
 <div class="row ">
@@ -15,20 +15,3 @@
         </div>
     <% end %>
 </div>
-
-
-<script>
-function deletePiano(id){
-
-    $.ajax({
-              url: '/admin/eliminaPiano',
-              type: 'POST',
-              data: {id: id},
-              success: function(data) {
-                    $('#id-' + id).fadeOut();
-              }
-            });
-
-}
-
-</script>
