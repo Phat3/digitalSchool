@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get '/admin/piani', to: 'admin/admin#piani'
 
-  get '/admin/piani', to: 'admin/admin#pianiAdd'
+  get '/admin/pianiAdd', to: 'admin/admin#pianiAdd'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
