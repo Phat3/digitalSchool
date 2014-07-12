@@ -3,11 +3,11 @@
 </div>
 
 <div class="row ">
-    <a href="/admin/pianiAdd" class="pull-right btn btn-default">Aggiungi</a>
+    <a href="/admin/insegnantiAdd" class="pull-right btn btn-default">Aggiungi</a>
 </div>
 
  <div class="row piani-list">
-    <% @piani.each do |des| %>
+    <% @insegnanti.each do |des| %>
          <div id="id-<%= des.id %>" class="row piano-element">
                         <div id="name-<%= des.nome %>"><%= des.nome %></div>
                        <i class="fa fa-trash-o" onclick="deletePiano(<%= des.id %>)"></i>

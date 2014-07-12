@@ -1,0 +1,35 @@
+<div class="row intestazione">
+    <h3>AGGIUNGI INSEGANTE</h3>
+</div>
+
+<%= form_for :productimages, url: "/admin/aggiungiInsegnante", :html => {:multipart => true} do |f| %>
+
+  <div class="form-group">
+    <label >Nome e Cognome</label>
+    <input type="text" name="nome" class="form-control"  placeholder="Immetti il nome del piano formativo">
+  </div>
+  <div class="form-group">
+    <label >Descrizione</label>
+    <textarea id="body" class='textarea-admin' name='descrizione'></textarea>
+  </div>
+    <p>
+          <%= file_field(:immagine, :image,  :multiple => true, accept: 'image/png,image/gif,image/jpeg') %></p>
+    <p>
+      <p>
+          <%= file_field(:pdfs, :pdf,  :multiple => true, accept: 'application/pdf') %></p>
+    <p>
+    <p>
+      <%= f.submit  'Salva', :class => 'btn btn-primary pull-right' %>
+    </p>
+<% end %>
+
+<script type="text/javascript">
+tinymce.init({
+    selector: "textarea",
+    forced_root_block : 'div'
+ });
+</script>
+
+<script >
+
+</script>
