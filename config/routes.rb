@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   post '/admin/aggiungiPiano', to: 'admin/piani#aggiungiPiano'
 
+  post '/admin/eliminaPiano', to: 'admin/piani#eliminaPiano'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

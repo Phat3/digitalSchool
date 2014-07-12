@@ -11,7 +11,7 @@
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Informazioni</label>
-    <textarea class='textarea-admin' name='descrizione'></textarea>
+    <textarea id="body" class='textarea-admin' name='descrizione'></textarea>
   </div>
   <a  onclick="validate()" class="btn btn-primary pull-right">Submit</a>
 </form>
@@ -20,7 +20,8 @@
 
 <script type="text/javascript">
 tinymce.init({
-    selector: "textarea"
+    selector: "textarea",
+    forced_root_block : 'div'
  });
 </script>
 
@@ -28,15 +29,14 @@ tinymce.init({
 <script >
 function validate(){
 
-  console.log($('#post-form').serialize());
-
     $.ajax({
               url: '/admin/aggiungiPiano',
               type: 'POST',
-              data: $('#post-form').serialize(),
+              data: {nome: $('input[name="nome"]').val() , descrizione: tinyMCE.get('body').getContent()},
               success: function(data) {
-
+                  window.location.href = "/admin/piani"
               }
             });
+
 }
 </script>

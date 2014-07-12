@@ -49,12 +49,6 @@
     top: -20px;
 }
 
-.piano-element:hover{
-    height: 50px;
-    width: 101%;
-    padding-top: 13px;
-    margin-left: 10px;
-}
 
 .textarea-admin{
     min-height: 200px;
