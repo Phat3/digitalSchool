@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   post '/admin/getInfoCorsi', to: 'admin/corsi#getInfo'
 
+  post '/admin/aggiornaCorso/:id', to: 'admin/corsi#aggiorna'
+
   get '/admin/tipiCorsi', to: 'admin/tipocorso#index'
 
   post '/admin/aggiungiTipo', to: 'admin/tipocorso#aggiungiTipo'

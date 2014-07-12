@@ -2,7 +2,7 @@
     <h3>MODIFICA CORSO</h3>
 </div>
 
-<%= form_for :productimages, url: "/admin/aggiungiCorso" do |f| %>
+<%= form_for :productimages, url: "/admin/aggiornaCorso/" + @corso.id.to_s do |f| %>
 
   <div class="form-group">
     <label >Nome</label>

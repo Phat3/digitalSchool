@@ -42,4 +42,17 @@ class Admin::CorsiController < ApplicationController
         render 'admin/corsi/corsiEdit'
     end
 
+    def aggiorna
+        @corso = Corso.find(params[:id])
+        @corso.nome = params[:nome]
+        @corso.descrizione = params[:descrizione]
+        @corso.insegnante_id = params[:insegnante]
+        @corso.classe_id = params[:classe]
+        @corso.piano_id = params[:piano]
+
+        @corso.save()
+        redirect_to '/admin/corsi'
+
+    end
+
 end

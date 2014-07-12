@@ -7,19 +7,15 @@
 </div>
 
  <div class="row piani-list">
-    <div class="col-xs-10">
+    <div class="col-xs-12">
     <% @corsi.each do |des| %>
          <div id="id-<%= des.id %>" class="row piano-element">
                         <div id="name-<%= des.nome %>"><%= des.nome %></div>
+                        <a href="#" class="btn btn-default pull-right" style="margin-top: -26px; margin-right: 5px;">Gestisci File</a>
                        <i class="fa fa-trash-o" onclick="deleteInsegnante(<%= des.id %>)"></i>
                        <i class="fa fa-pencil-square-o" onclick="editCorso(<%= des.id %>)"></i>
                        <i class="fa fa-info-circle" onclick="getInfo(<%= des.id %>)"></i>
         </div>
-    <% end %>
-  </div>
-  <div class="col-xs-2">
-    <% @corsi.each do |des| %>
-         <a href="#" class="btn btn-primary pull-right" style="margin-top: 5px;">Gestisci File</a>
     <% end %>
   </div>
 </div>
@@ -58,7 +54,6 @@
             </div>
             </div>
         </div>
-
 
         <div class="row">
              <label>Descrizione</label>
