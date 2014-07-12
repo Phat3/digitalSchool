@@ -10,8 +10,25 @@
     <% @insegnanti.each do |des| %>
          <div id="id-<%= des.id %>" class="row piano-element">
                         <div id="name-<%= des.nome %>"><%= des.nome %></div>
-                       <i class="fa fa-trash-o" onclick="deletePiano(<%= des.id %>)"></i>
+                       <i class="fa fa-trash-o" onclick="deleteInsegnante(<%= des.id %>)"></i>
                        <i class="fa fa-info-circle" onclick="getInfo(<%= des.id %>)"></i>
         </div>
     <% end %>
 </div>
+
+
+<script>
+function deleteInsegnante(id){
+
+    $.ajax({
+              url: '/admin/eliminaInsegnante',
+              type: 'POST',
+              data: {id: id},
+              success: function(data) {
+                    $('#id-' + id).fadeOut();
+              }
+            });
+
+}
+
+</script>

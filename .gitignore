@@ -16,3 +16,4 @@
 /tmp
 .idea/*
 public/data/*
+.DS_Store

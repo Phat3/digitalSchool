@@ -12,9 +12,13 @@
     <label >Descrizione</label>
     <textarea id="body" class='textarea-admin' name='descrizione'></textarea>
   </div>
+
+  <label >Foto</label>
     <p>
           <%= file_field(:immagine, :image,  :multiple => true, accept: 'image/png,image/gif,image/jpeg') %></p>
     <p>
+
+    <label >Pdf</label>
       <p>
           <%= file_field(:pdfs, :pdf,  :multiple => true, accept: 'application/pdf') %></p>
     <p>
