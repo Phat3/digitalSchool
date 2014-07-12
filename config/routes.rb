@@ -3,9 +3,11 @@ Rails.application.routes.draw do
 
   get '/admin/index', to: 'admin/admin#index'
 
-  get '/admin/piani', to: 'admin/admin#piani'
+  get '/admin/piani', to: 'admin/piani#piani'
 
-  get '/admin/pianiAdd', to: 'admin/admin#pianiAdd'
+  get '/admin/pianiAdd', to: 'admin/piani#pianiAdd'
+
+  post '/admin/aggiungiPiano', to: 'admin/piani#aggiungiPiano'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

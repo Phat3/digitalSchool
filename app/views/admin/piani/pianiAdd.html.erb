@@ -4,7 +4,7 @@
 
 
 
-<form role="form">
+<form role="form" id="post-form">
   <div class="form-group">
     <label for="exampleInputEmail1">Nome piano</label>
     <input type="text" name="nome" class="form-control"  placeholder="Immetti il nome del piano formativo">
@@ -13,7 +13,7 @@
     <label for="exampleInputPassword1">Informazioni</label>
     <textarea class='textarea-admin' name='descrizione'></textarea>
   </div>
-  <button type="submit" class="btn btn-primary pull-right">Submit</button>
+  <a  onclick="validate()" class="btn btn-primary pull-right">Submit</a>
 </form>
 
 
@@ -22,4 +22,21 @@
 tinymce.init({
     selector: "textarea"
  });
+</script>
+
+
+<script >
+function validate(){
+
+  console.log($('#post-form').serialize());
+
+    $.ajax({
+              url: '/admin/aggiungiPiano',
+              type: 'POST',
+              data: $('#post-form').serialize(),
+              success: function(data) {
+
+              }
+            });
+}
 </script>
