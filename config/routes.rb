@@ -50,6 +50,8 @@ Rails.application.routes.draw do
 
   post '/admin/materiale/upload', to: 'admin/materiale#upload'
 
+  post '/admin/eliminaMateriale', to: 'admin/materiale#eliminaMateriale'
+
   ###### ROUTES UTENTE ######
 
   get '/prova', to: 'main#prova'
