@@ -18,18 +18,8 @@
     </select>
   </div>
 
-    <div class="form-group">
-     <label for="name">Classe</label>
-      <select name="classe" class='form-control'>
-                 <option value="" disabled="disabled" selected="selected">Seleziona la classe del corso</option>
-                 <% @classi.each do |des| %>
-                      <option value='<%= des.id %>'  ><%= des.nome %></option>
-                  <% end %>
-    </select>
-  </div>
-
   <div class="form-group">
-     <label for="name">Piano</label>
+     <label for="name">Piano (seleziona per fare apparire le classi appropriate)</label>
       <select name="piano" class='form-control'>
                  <option value="" disabled="disabled" selected="selected">Seleziona un piano formativo</option>
                  <% @piani.each do |des| %>
@@ -37,6 +27,14 @@
                   <% end %>
     </select>
   </div>
+
+    <div class="form-group">
+     <label for="name">Classe</label>
+      <select name="classe" class='form-control cambia'>
+                 <option value="" disabled="disabled" selected="selected">Seleziona la classe del corso</option>
+    </select>
+  </div>
+
 
   <div class="form-group">
     <label >Descrizione</label>
@@ -53,6 +51,23 @@ tinymce.init({
     selector: "textarea",
     forced_root_block : 'div'
  });
+</script>
+
+<script>
+  $('select[name="piano"]').change(function(){
+    console.log($(this).val());
+
+    $.ajax({
+              url: '/admin/getClassiByPiano',
+              type: 'POST',
+              data: {id: $(this).val()},
+              success: function(data) {
+                console.log(data)
+                $('.cambia').html('<option value="" disabled="disabled" selected="selected">Seleziona la classe del corso</option><option value="' + data.id + '""  >' + data.nome + '</option>')
+              }
+            });
+
+  })
 </script>
 
 

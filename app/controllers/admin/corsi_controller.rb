@@ -55,4 +55,10 @@ class Admin::CorsiController < ApplicationController
 
     end
 
+    def getClassi
+        @classi = Classe.find(params[:id])
+        render :json => @classi
+    end
+
+
 end
