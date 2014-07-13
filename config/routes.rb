@@ -50,4 +50,5 @@ Rails.application.routes.draw do
 
   get '/history', to: 'main#history'
   get '/principles', to: 'main#principles'
+  get '/rules', to: 'main#rules'
 end
