@@ -6,8 +6,8 @@ class MainController < ApplicationController
     render '/home'
   end
 
-  def prova
-    render '/prova'
+  def history
+    render '/history'
   end
 
 end

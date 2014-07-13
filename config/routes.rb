@@ -48,6 +48,6 @@ Rails.application.routes.draw do
 
   ###### ROUTES UTENTE ######
 
-  get '/prova', to: 'main#prova'
+  get '/history', to: 'main#history'
 
 end
