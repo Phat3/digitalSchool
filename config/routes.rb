@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   post '/admin/getInfoCorsi', to: 'admin/corsi#getInfo'
 
+  post '/admin/getClassiByPiano', to: 'admin/corsi#getClassi'
+
   post '/admin/aggiornaCorso/:id', to: 'admin/corsi#aggiorna'
 
   get '/admin/insegnanti', to: 'admin/insegnanti#index'
@@ -46,7 +48,13 @@ Rails.application.routes.draw do
 
   post '/admin/eliminaMateriale', to: 'admin/materiale#eliminaMateriale'
 
-   get '/admin/classi', to: 'admin/classi#index'
+  get '/admin/classi', to: 'admin/classi#index'
+
+  post '/admin/classi/aggiungi', to: 'admin/classi#aggiungi'
+
+  post '/admin/getInfoClassi', to: 'admin/classi#getInfo'
+
+  post '/admin/eliminaClasse', to: 'admin/classi#elimina'
 
   ###### ROUTES UTENTE ######
 

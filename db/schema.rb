@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(version: 20140713084329) do
 
   create_table "classes", force: true do |t|
     t.string   "orario"
+    t.string   "nome"
+    t.integer  "piano_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

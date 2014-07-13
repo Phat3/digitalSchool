@@ -15,14 +15,19 @@ class Admin::MaterialeController < ApplicationController
         @materiale.tipo = params[:tipo]
         @materiale.corso_id = params[:corso]
 
-        params[:files]['file'].each do |i|
-            ext = File.extname(i.original_filename)
-            @materiale.file = SecureRandom.uuid + ext
-            #passiamo anche il nome cosi da evitare problemi in fase di cancellazione(nomiunivoci)
-            Materiale.savefile(i, @materiale.file)
+        #evitiamo gli errori dovut alla mancanza dei file
+        if(params[:files]['file'][0] !='')
+            params[:files]['file'].each do |i|
+                ext = File.extname(i.original_filename)
+                @materiale.file = SecureRandom.uuid + ext
+                #passiamo anche il nome cosi da evitare problemi in fase di cancellazione(nomiunivoci)
+                Materiale.savefile(i, @materiale.file)
+            end
         end
-
-        @materiale.save()
+        #evitiamo gli errori dovut alla mancanza dei file
+        if(params[:files]['file'][0] !='')
+             @materiale.save()
+        end
 
         render :json => @materiale
     end
