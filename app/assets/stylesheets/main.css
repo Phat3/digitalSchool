@@ -134,3 +134,9 @@
      border: 3px solid #012951;
 }
 
+.contenitore-statico{
+    background: white;
+    padding-top: 30px;
+    min-height: 85vh;
+}
+
