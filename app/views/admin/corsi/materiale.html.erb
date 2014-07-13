@@ -11,7 +11,7 @@
     <div class="col-xs-12 appendi">
     <% @materiale.each do |des| %>
          <div id="id-<%= des.id %>" class="row piano-element">
-                        <div id="name-<%= des.nome %>"><%= des.nome %> <span class="info-tipo"> -- <%= des.tipo %> -- </span></div>
+                        <div id="name-<%= des.nome %>"><a href="/data/materale/<%= des.file %>" target="_blank"><%= des.nome %></a> <span class="info-tipo"> -- <%= des.tipo %> -- </span></div>
                        <i class="fa fa-trash-o" onclick="deleteMateriale(<%= des.id %>)"></i>
         </div>
     <% end %>
@@ -56,7 +56,7 @@
             $('#ajax-form').ajaxForm(function(data) {
                 console.log(data);
                 var html = '<div id="id-' + data.id + '" class="row piano-element">'+
-                                  '<div id="name-' + data.nome + '">' + data.nome + ' ' +  '<span class="info-tipo"> --' + data.tipo + '-- </span></div>' +
+                                  '<div id="name-' + data.nome + '"><a href="/data/materale/' + data.file + '" target="_blank">' + data.nome + '</a> ' +  '<span class="info-tipo"> --' + data.tipo + '-- </span></div>' +
                                   '<i class="fa fa-trash-o" onclick="deleteMateriale(' + data.id + ' )"></i>' +
                                   '</div>';
                 $('.appendi').append(html);
