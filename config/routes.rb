@@ -62,4 +62,5 @@ Rails.application.routes.draw do
   get '/principles', to: 'main#principles'
   get '/rules', to: 'main#rules'
   get '/admission', to: 'main#admission'
+  get '/support', to: 'main#support'
 end

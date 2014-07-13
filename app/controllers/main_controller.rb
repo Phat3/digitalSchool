@@ -20,4 +20,7 @@ class MainController < ApplicationController
   def admission
     render '/admission'
   end
+  def support
+    render '/support'
+  end
 end
