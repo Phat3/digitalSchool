@@ -24,7 +24,7 @@ class Admin::MaterialeController < ApplicationController
 
         @materiale.save()
 
-        render :nothing => true
+        render :json => @materiale
     end
 
 end

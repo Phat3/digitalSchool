@@ -57,3 +57,8 @@
 .info-img{
     width:50%;
 }
+
+.info-tipo{
+    position: absolute;
+    left: 200px;
+}
