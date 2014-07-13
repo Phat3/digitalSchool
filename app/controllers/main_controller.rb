@@ -29,4 +29,7 @@ class MainController < ApplicationController
   def ufficio
     render '/ufficio_scuola'
   end
+  def strutture
+    render '/strutture'
+  end
 end

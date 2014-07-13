@@ -1,0 +1,37 @@
+
+  <div class="strutture-carousel">
+    <div class="image-carousel">
+      <div class="col-sm-6">
+        <div class="image-carousel-slide" ><img src="/img/slideStrutt-1.jpg" alt="" style="width:100%"></div>
+        <div class="image-carousel-slide" ><img src="/img/slideStrutt-2.jpg" alt="" style="width:100%"></div>
+      </div>
+    <div class="customNavigation">
+      <a class="btn prev"><i class="fa fa-angle-left"></i></a>
+      <a class="btn next"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+</div>
+<script>
+
+    $(document).ready(function() {
+
+        var owl = $(".image-carousel");
+
+        owl.owlCarousel({
+            items: 1,
+            autoPlay: true,
+            stopOnHover: true,
+            navigation: true,
+            navigationText : false,
+            responsiveBaseWidth: ".image-carousel-slide"
+            //responsiveBaseWidth: ".author"
+        });
+
+        $(".next").click(function(){
+            owl.trigger('owl.next');
+        })
+        $(".prev").click(function(){
+            owl.trigger('owl.prev');
+        })
+    });
+</script>

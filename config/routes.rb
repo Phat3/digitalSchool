@@ -69,4 +69,5 @@ Rails.application.routes.draw do
   get '/support', to: 'main#support'
   get '/successi', to: 'main#successi'
   get '/ufficio_scuola', to: 'main#ufficio'
+  get '/strutture', to: 'main#strutture'
 end
