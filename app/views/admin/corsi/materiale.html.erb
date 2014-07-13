@@ -1,0 +1,67 @@
+<div class="row intestazione">
+    <h3>GESTIONE FILE DEL CORSO <br> <%= @corso.nome %> </h3>
+</div>
+
+
+<div class="row ">
+    <button class="pull-right btn btn-default" data-toggle="modal" data-target="#UploadFile">Upload</button>
+</div>
+
+ <div class="row piani-list">
+    <div class="col-xs-12">
+    <% @materiale.each do |des| %>
+         <div id="id-<%= des.id %>" class="row piano-element">
+                        <div id="name-<%= des.nome %>"><%= des.nome %></div>
+                        <a href="#" class="btn btn-default pull-right" style="margin-top: -26px; margin-right: 5px;">Gestisci File</a>
+                       <i class="fa fa-trash-o" onclick="deleteInsegnante(<%= des.id %>)"></i>
+                       <i class="fa fa-pencil-square-o" onclick="editCorso(<%= des.id %>)"></i>
+                       <i class="fa fa-info-circle" onclick="getInfo(<%= des.id %>)"></i>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<div id="UploadFile" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>Upload file</h4>
+      </div>
+      <div class="modal-body">
+        <form id="ajax-form" action="/admin/materiale/upload" method="post">
+        <div class="form-group">
+            <label >Nome file</label>
+            <input type="text" name="nome" class="form-control"  placeholder="Immetti il nome del tipo di corso">
+          </div>
+           <div class="form-group">
+              <label >Tipologia</label>
+              <input type="text" name="tipo" class="form-control"  placeholder="Immetti il tipo (slide, libro ecc...)">
+          </div>
+           <div class="form-group">
+            <label>File (Solo PDF)</label>
+                <%= file_field(:files, :file,  :multiple => true, accept: 'application/pdf') %></p>
+            </div>
+            <input type="hidden" value="<%= @corso.id %>" name="corso" />
+      </div>
+      <div class="modal-footer">
+        <button type="submit">Import Data</button>
+      </div>
+       </form>
+    </div>
+  </div>
+</div>
+
+<script src="/js/jquery-ajax-form.js"></script>
+<script>
+
+     $(document).ready(function() {
+            // bind 'myForm' and provide a simple callback function
+            $('#ajax-form').ajaxForm(function() {
+                $('input[name="nome"]').val('')
+                $('input[name="tipo"]').val('')
+                $('#files_file').val('')
+                $('#UploadFile').modal('hide')
+            });
+        });
+
+</script>

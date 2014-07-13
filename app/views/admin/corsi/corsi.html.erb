@@ -11,7 +11,7 @@
     <% @corsi.each do |des| %>
          <div id="id-<%= des.id %>" class="row piano-element">
                         <div id="name-<%= des.nome %>"><%= des.nome %></div>
-                        <a href="#" class="btn btn-default pull-right" style="margin-top: -26px; margin-right: 5px;">Gestisci File</a>
+                        <a href="/admin/materiale/<%= des.id %>" class="btn btn-default pull-right" style="margin-top: -26px; margin-right: 5px;">Gestisci File</a>
                        <i class="fa fa-trash-o" onclick="deleteInsegnante(<%= des.id %>)"></i>
                        <i class="fa fa-pencil-square-o" onclick="editCorso(<%= des.id %>)"></i>
                        <i class="fa fa-info-circle" onclick="getInfo(<%= des.id %>)"></i>

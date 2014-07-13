@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140712163904) do
+ActiveRecord::Schema.define(version: 20140713084329) do
 
   create_table "classes", force: true do |t|
     t.string   "orario"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 20140712163904) do
     t.text     "bio"
     t.string   "cv"
     t.string   "foto"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "materiales", force: true do |t|
+    t.string   "nome"
+    t.string   "file"
+    t.string   "tipo"
+    t.integer  "corso_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

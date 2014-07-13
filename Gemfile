@@ -41,3 +41,5 @@ gem 'spring',        group: :development
 gem 'execjs'
 gem 'tzinfo-data'
 
+gem 'remotipart', '~> 1.2'
+
