@@ -61,6 +61,23 @@ class Admin::InsegnantiController < ApplicationController
 
         File.delete(path) if File.exist?(path)
 
+        @corsi = Corso.where(:insegnante_id => @insegnante.id)
+
+        #delete a cascata di corsi e classi quando si cancella un piano formativo
+        @corsi.each do |des|
+            #cancello tutti i materiali associati al corso
+                @materiali = Materiale.where(:corso_id => des.id)
+                @materiali.each do |val|
+                    nameVal = val.file
+                    directoryVal = "public/data/materale"
+                    # create the file path
+                    path = File.join(directoryVal, nameVal)
+                    File.delete(path) if File.exist?(path)
+                    val.destroy
+                    end
+            des.destroy
+        end
+
         @insegnante.destroy
         render :nothing => true
     end

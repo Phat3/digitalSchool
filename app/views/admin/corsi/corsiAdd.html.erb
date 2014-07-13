@@ -63,7 +63,11 @@ tinymce.init({
               data: {id: $(this).val()},
               success: function(data) {
                 console.log(data)
-                $('.cambia').html('<option value="" disabled="disabled" selected="selected">Seleziona la classe del corso</option><option value="' + data.id + '""  >' + data.nome + '</option>')
+                $('.cambia').html('<option value="" disabled="disabled" selected="selected">Seleziona la classe del corso</option>')
+                $(data).each(function(key, value){
+                  $('.cambia').append('<option value="' + value.id + '""  >' + value.nome + '</option>')
+                })
+
               }
             });
 
