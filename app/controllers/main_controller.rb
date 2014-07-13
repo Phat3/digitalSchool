@@ -23,4 +23,7 @@ class MainController < ApplicationController
   def support
     render '/support'
   end
+  def successi
+    render '/successi'
+  end
 end

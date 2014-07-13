@@ -63,4 +63,5 @@ Rails.application.routes.draw do
   get '/rules', to: 'main#rules'
   get '/admission', to: 'main#admission'
   get '/support', to: 'main#support'
+  get '/successi', to: 'main#successi'
 end
