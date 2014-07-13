@@ -46,6 +46,8 @@ Rails.application.routes.draw do
 
   post '/admin/eliminaMateriale', to: 'admin/materiale#eliminaMateriale'
 
+   get '/admin/classi', to: 'admin/classi#index'
+
   ###### ROUTES UTENTE ######
 
   get '/history', to: 'main#history'
