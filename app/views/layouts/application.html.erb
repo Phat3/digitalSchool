@@ -10,19 +10,47 @@
   <script  src="/js/bootstrap.js" ></script>
   <script  src="/js/owl.carousel.js" ></script>
   <%= csrf_meta_tags %>
-  <%= javascript_include_tag :defaults %>
 </head>
 
 <body class="front-end">
 
     <!-- HEADER  -->
-    <div class="header">
-        <a href="#">Piani Formativi</a>
-        <a href="#">Strutture</a>
-        <a href="#">Corsi</a>
-        <a href="#">Insegnanti</a>
-        <a href="#">Calendario</a>
-        <a href="#">Contatti</a>
+    <div id='cssmenu' class='align-right' style="margin-top: 50px;">
+    <ul>
+       <li class='has-sub'><a href='#'><span>Informazioni</span></a>
+          <ul>
+             <li><a href='#'><span>Dove siamo</span></a></li>
+             <li><a href='#'><span>Storia</span></a></li>
+             <li><a href='#'><span>Supporto</span></a></li>
+             <li><a href='#'><span>Successi</span></a></li>
+             <li><a href='#'><span>Principi</span></a></li>
+             <li><a href='#'><span>Regole</span></a></li>
+             <li class='last'><a href='#'><span>Ammissione</span></a></li>
+          </ul>
+       </li>
+        <li class='has-sub'><a href='#'><span>Genitori</span></a>
+          <ul>
+             <li><a href='#'><span>Rappresentanti</span></a></li>
+             <li class='last'><a href='#'><span>Comitato</span></a></li>
+          </ul>
+       </li>
+       <li class='has-sub'><a href='#'><span>Classi</span></a>
+          <ul>
+             <li><a href='#'><span>Tutte</span></a></li>
+             <li class='has-sub last'><a href='#'><span>Per Piano formativo</span></a>
+              <ul>
+                 <li><a href='#'><span>Rappresentanti</span></a></li>
+                 <li class='last'><a href='#'><span>Comitato</span></a></li>
+              </ul>
+             </li>
+          </ul>
+       </li>
+       <li><a href='#'><span>Eventi</span></a></li>
+       <li><a href='#'><span>Insegnanti</span></a></li>
+       <li><a href='#'><span>Corsi</span></a></li>
+       <li><a href='#'><span>Strutture</span></a></li>
+       <li class='last'><a href='#'><span>Piani Formativi</span></a></li>
+    </ul>
     </div>
 
 
