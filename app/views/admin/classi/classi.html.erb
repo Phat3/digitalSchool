@@ -78,7 +78,7 @@
             $('#ajax-form').ajaxForm(function(data) {
 
                   var html = '<div id="id-' + data.id + '" class="row piano-element">'+
-                                    '<div id="name-' + data.nome + '">' + data.nome + '<span class="info-tipo"> --' + $('select[name="piano"] option:selected').text() + '-- </span></div>' +
+                                    '<div id="name-' + data.nome + '">' + data.nome + '<span class="info-tipo"> -- ' + $('select[name="piano"] option:selected').text() + '-- </span></div>' +
                                     '<i class="fa fa-trash-o" onclick="deleteClasse(' + data.id + ' )"></i>' +
                                     '<i class="fa fa-info-circle" onclick="getInfo(' + data.id + ')"></i>'
                                     '</div>';

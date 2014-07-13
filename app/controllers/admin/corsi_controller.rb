@@ -56,8 +56,27 @@ class Admin::CorsiController < ApplicationController
     end
 
     def getClassi
-        @classi = Classe.find(params[:id])
+        @classi = Classe.where(:piano_id => params[:id])
         render :json => @classi
+    end
+
+    skip_before_action :verify_authenticity_token
+    def elimina
+        @corso = Corso.find(params[:id])
+
+        directory = "public/data/materiale"
+        #cancello tutti i materiali associati al corso
+        @materiali = Materiale.where(:corso_id => @corso.id)
+        @materiali.each do |des|
+            name = des.file
+            directory = "public/data/materale"
+            # create the file path
+            path = File.join(directory, name)
+            File.delete(path) if File.exist?(path)
+            des.destroy
+        end
+        @corso.destroy
+        render :nothing => true
     end
 
 

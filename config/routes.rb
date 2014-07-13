@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   post '/admin/eliminaPiano', to: 'admin/piani#eliminaPiano'
 
+  post '/admin/getInfoPiani', to: 'admin/piani#getInfo'
+
   get '/admin/corsi', to: 'admin/corsi#index'
 
   get '/admin/corsiAdd', to: 'admin/corsi#corsiAdd'
@@ -25,6 +27,8 @@ Rails.application.routes.draw do
   post '/admin/getInfoCorsi', to: 'admin/corsi#getInfo'
 
   post '/admin/getClassiByPiano', to: 'admin/corsi#getClassi'
+
+  post '/admin/eliminaCorso', to: 'admin/corsi#elimina'
 
   post '/admin/aggiornaCorso/:id', to: 'admin/corsi#aggiorna'
 
