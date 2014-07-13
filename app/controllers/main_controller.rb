@@ -17,4 +17,7 @@ class MainController < ApplicationController
   def rules
     render '/rules'
   end
+  def admission
+    render '/admission'
+  end
 end
