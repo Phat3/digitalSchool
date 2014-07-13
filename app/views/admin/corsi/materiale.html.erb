@@ -12,7 +12,7 @@
     <% @materiale.each do |des| %>
          <div id="id-<%= des.id %>" class="row piano-element">
                         <div id="name-<%= des.nome %>"><%= des.nome %> <span class="info-tipo"> -- <%= des.tipo %> -- </span></div>
-                       <i class="fa fa-trash-o" onclick="deleteInsegnante(<%= des.id %>)"></i>
+                       <i class="fa fa-trash-o" onclick="deleteMateriale(<%= des.id %>)"></i>
         </div>
     <% end %>
   </div>
@@ -57,7 +57,7 @@
                 console.log(data);
                 var html = '<div id="id-' + data.id + '" class="row piano-element">'+
                                   '<div id="name-' + data.nome + '">' + data.nome + ' ' +  '<span class="info-tipo"> --' + data.tipo + '-- </span></div>' +
-                                  '<i class="fa fa-trash-o" onclick="deleteInsegnante(' + data.id + ' )"></i>' +
+                                  '<i class="fa fa-trash-o" onclick="deleteMateriale(' + data.id + ' )"></i>' +
                                   '</div>';
                 $('.appendi').append(html);
                 $('input[name="nome"]').val('')
@@ -66,5 +66,18 @@
                 $('#UploadFile').modal('hide')
             });
         });
+
+     function deleteMateriale(id){
+
+    $.ajax({
+              url: '/admin/eliminaMateriale',
+              type: 'POST',
+              data: {id: id},
+              success: function(data) {
+                    $('#id-' + id).fadeOut();
+              }
+            });
+
+}
 
 </script>

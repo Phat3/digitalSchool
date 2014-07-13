@@ -27,4 +27,20 @@ class Admin::MaterialeController < ApplicationController
         render :json => @materiale
     end
 
+      skip_before_action :verify_authenticity_token
+    def eliminaMateriale
+
+        @materiale = Materiale.find(params[:id])
+        name = @materiale.file
+
+        directory = "public/data/materale"
+        # create the file path
+        path = File.join(directory, name)
+
+        File.delete(path) if File.exist?(path)
+
+        @materiale.destroy
+        render :nothing => true
+    end
+
 end
