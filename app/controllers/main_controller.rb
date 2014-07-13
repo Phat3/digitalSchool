@@ -10,4 +10,7 @@ class MainController < ApplicationController
     render '/history'
   end
 
+  def principles
+    render '/principles'
+  end
 end
