@@ -26,12 +26,6 @@ Rails.application.routes.draw do
 
   post '/admin/aggiornaCorso/:id', to: 'admin/corsi#aggiorna'
 
-  get '/admin/tipiCorsi', to: 'admin/tipocorso#index'
-
-  post '/admin/aggiungiTipo', to: 'admin/tipocorso#aggiungiTipo'
-
-  post '/admin/eliminaTipo', to: 'admin/tipocorso#eliminaTipo'
-
   get '/admin/insegnanti', to: 'admin/insegnanti#index'
 
   get '/admin/insegnantiAdd', to: 'admin/insegnanti#insegnantiAdd'
