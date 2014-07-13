@@ -64,7 +64,6 @@ class Admin::CorsiController < ApplicationController
     def elimina
         @corso = Corso.find(params[:id])
 
-        directory = "public/data/materiale"
         #cancello tutti i materiali associati al corso
         @materiali = Materiale.where(:corso_id => @corso.id)
         @materiali.each do |des|
