@@ -51,5 +51,5 @@ Rails.application.routes.draw do
   ###### ROUTES UTENTE ######
 
   get '/history', to: 'main#history'
-
+  get '/principles', to: 'main#principles'
 end
