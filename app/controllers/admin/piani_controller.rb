@@ -30,6 +30,8 @@ class Admin::PianiController < ApplicationController
     def eliminaPiano
 
         @piano = Piano.find(params[:id])
+
+        @corsi = Corso.where(:corso_id = @piano.id)
         @piano.destroy
         #non vogiamo fare il render di niente
         render :nothing => true
