@@ -26,4 +26,7 @@ class MainController < ApplicationController
   def successi
     render '/successi'
   end
+  def ufficio
+    render '/ufficio_scuola'
+  end
 end
