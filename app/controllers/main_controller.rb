@@ -13,4 +13,11 @@ class MainController < ApplicationController
   def principles
     render '/principles'
   end
+
+  def rules
+    render '/rules'
+  end
+  def admission
+    render '/admission'
+  end
 end
