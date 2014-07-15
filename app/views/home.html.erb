@@ -42,44 +42,23 @@
             <h4>ULTIMI EVENTI</h4>
 
             <div id='lista-eventi'>
-
+                <% @eventi.each do |des| %>
                 <div class="row item">
-                    <div class="col-sm-3 down">10/10/2121</div>
-                    <div class="col-sm-7">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <div class="col-sm-3 down"><%= des.data %></div>
+                    <div class="col-sm-6">
+                        <p><%= des.nome %></p>
                     </div>
-                    <div class="col-sm-2 down">
-                        <a onclick="showModal()" class='btn btn-default btn-school'><i class="fa fa-info-circle"></i></a>
+                    <div class="col-sm-3 down">
+                        <a onclick="showModal(<%= des.id %>)" class='btn btn-default btn-school' style="position:relative; bottom:5px;"><i class="fa fa-info-circle"></i></a>
                     </div>
                 </div>
-                <div class="row item">
-                    <div class="col-sm-3 down">10/10/2121</div>
-                    <div class="col-sm-7">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    </div>
-                    <div class="col-sm-2 down">
-                        <a onclick="showModal()" class='btn btn-default btn-school'><i class="fa fa-info-circle"></i></a>
-                    </div>
-                </div>
-                <div class="row item">
-                    <div class="col-sm-3 down">10/10/2121</div>
-                    <div class="col-sm-7">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    </div>
-                    <div class="col-sm-2 down">
-                        <a onclick="showModal()" class='btn btn-default btn-school'><i class="fa fa-info-circle"></i></a>
-                    </div>
-                </div>
-                <div class="row item">
-                    <div class="col-sm-3 down">10/10/2121</div>
-                    <div class="col-sm-7">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    </div>
-                    <div class="col-sm-2 down">
-                        <a onclick="showModal()" class='btn btn-default btn-school'><i class="fa fa-info-circle"></i></a>
-                    </div>
-                </div>
+                <% end %>
             </div>
+            <% if @eventi.count == 5 %>
+            <div id="see-all-event">
+                <a href="/eventi">Vedi tutti gli eventi</a>
+            </div>
+            <% end %>
         </div>
         <div class="col-sm-1">
         </div>
@@ -91,10 +70,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" >&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title">Modal title</h4>
+        <h4 class="modal-title" id="spazio-titolo"></h4>
       </div>
       <div class="modal-body">
-        <p>One fine body&hellip;</p>
+        <p id="spazio-descrizione"></p>
       </div>
       <div class="modal-footer">
         <button type="button" class='btn btn-default btn-school' data-dismiss="modal">Close</button>
@@ -134,7 +113,18 @@
         $('#sub-slogan').delay(1000).fadeIn(800);
     });
 
-    function showModal(){
+    function showModal(id){
+        $.ajax({
+              url: '/admin/getInfoEvento',
+              type: 'POST',
+              data: {id: id},
+              success: function(data) {
+                $('#spazio-descrizione').html(data.descrizione)
+                $('#spazio-titolo').html(data.nome)
+                $('#infoEvento').modal('show')
+              }
+            });
+
         $('#info-evento').modal('show');
     }
 

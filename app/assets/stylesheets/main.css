@@ -349,3 +349,13 @@
     text-align: justify;
 }
 
+#see-all-event{
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+#see-all-event a{
+  color: #012951;
+}

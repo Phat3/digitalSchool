@@ -77,11 +77,20 @@ Rails.application.routes.draw do
   ###### ROUTES UTENTE ######
 
   get '/history', to: 'main#history'
+
   get '/principles', to: 'main#principles'
+
   get '/rules', to: 'main#rules'
+
   get '/admission', to: 'main#admission'
+
   get '/support', to: 'main#support'
+
   get '/successi', to: 'main#successi'
+
   get '/ufficio_scuola', to: 'main#ufficio'
+
   get '/strutture', to: 'main#strutture'
+
+  get '/eventi', to: 'main#eventi'
 end

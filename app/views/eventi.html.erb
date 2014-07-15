@@ -1,0 +1,56 @@
+<div class="row contenitore-statico" >
+  <div class="col-sm-1"></div>
+
+  <div class="col-sm-10">
+  <h1 style="text-align: center; margin-bottom: 30px;">EVENTI SCUOLA SUPERIORE WILHELM</h1>
+    <div id='lista-eventi'>
+                <% @eventi.each do |des| %>
+                <div class="row item">
+                    <div class="col-sm-3 down"><%= des.data %></div>
+                    <div class="col-sm-6 down">
+                        <p><%= des.nome %></p>
+                    </div>
+                    <div class="col-sm-3 down">
+                        <a onclick="showModal(<%= des.id %>)" class='btn btn-default btn-school' style="position:relative; bottom:5px;"><i class="fa fa-info-circle"></i></a>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+  </div>
+
+  <div class="col-sm-1"></div>
+</div>
+
+<div id='info-evento' class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" >&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="spazio-titolo"></h4>
+      </div>
+      <div class="modal-body">
+        <p id="spazio-descrizione"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class='btn btn-default btn-school' data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script>
+  function showModal(id){
+        $.ajax({
+              url: '/admin/getInfoEvento',
+              type: 'POST',
+              data: {id: id},
+              success: function(data) {
+                $('#spazio-descrizione').html(data.descrizione)
+                $('#spazio-titolo').html(data.nome)
+                $('#infoEvento').modal('show')
+              }
+            });
+
+        $('#info-evento').modal('show');
+    }
+</script>
