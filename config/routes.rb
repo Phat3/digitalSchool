@@ -60,6 +60,20 @@ Rails.application.routes.draw do
 
   post '/admin/eliminaClasse', to: 'admin/classi#elimina'
 
+  get '/admin/eventi', to: 'admin/eventi#index'
+
+  get '/admin/eventiAdd', to: 'admin/eventi#eventiAdd'
+
+  post '/admin/aggiungiEvento', to: 'admin/eventi#aggiungi'
+
+  post '/admin/eliminaEvento', to: 'admin/eventi#elimina'
+
+  post '/admin/getInfoEvento', to: 'admin/eventi#getInfo'
+
+  get '/admin/eventiEdit/:id', to: 'admin/eventi#edit'
+
+  post '/admin/aggiornaEvento/:id', to: 'admin/eventi#aggiorna'
+
   ###### ROUTES UTENTE ######
 
   get '/history', to: 'main#history'
