@@ -11,6 +11,7 @@
          <div id="id-<%= des.id %>" class="row piano-element">
                         <div id="name-<%= des.nome %>"><%= des.nome %></div>
                        <i class="fa fa-trash-o" onclick="deletePiano(<%= des.id %>)"></i>
+                       <i class="fa fa-pencil-square-o" onclick="editPiano(<%= des.id %>)"></i>
                        <i class="fa fa-info-circle" onclick="getInfo(<%= des.id %>)"></i>
         </div>
     <% end %>
@@ -21,12 +22,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title">Scheda Insegnante</h4>
+        <h4 class="modal-title">Info piano</h4>
       </div>
       <div class="modal-body">
         <div class="row">
              <label>Bio</label>
              <p id="spazio-bio"></p>
+        </div>
+        <div class="row">
+                <img id="spazio-img" class="info-img"src"" />
         </div>
       </div>
       <div class="modal-footer">
@@ -57,10 +61,16 @@ function getInfo(id){
               type: 'POST',
               data: {id: id},
               success: function(data) {
+                $('#spazio-img').attr('src', '/data/piani/' + data.pianoOre)
                 $('#spazio-bio').html(data.descrizione)
                 $('#infoPiani').modal('show')
               }
             });
+}
+
+
+function editPiano(id){
+    window.location.href = "/admin/pianiEdit/" + id
 }
 
 </script>

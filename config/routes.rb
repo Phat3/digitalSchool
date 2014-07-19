@@ -16,6 +16,10 @@ Rails.application.routes.draw do
 
   post '/admin/getInfoPiani', to: 'admin/piani#getInfo'
 
+  get '/admin/pianiEdit/:id', to: 'admin/piani#edit'
+
+  post '/admin/aggiornaPiano/:id', to: 'admin/piani#aggiorna'
+
   get '/admin/corsi', to: 'admin/corsi#index'
 
   get '/admin/corsiAdd', to: 'admin/corsi#corsiAdd'

@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20140715181244) do
   create_table "pianos", force: true do |t|
     t.string   "nome"
     t.text     "descrizione"
+    t.string   "pianoOre"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

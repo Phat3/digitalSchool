@@ -11,18 +11,27 @@ class Admin::PianiController < ApplicationController
         render 'admin/piani/pianiAdd'
     end
 
-    #adios sicurezza
-    skip_before_action :verify_authenticity_token
+
     def aggiungiPiano
 
         @piano = Piano.new()
-        @piano.nome = params['nome']
-        @piano.descrizione = params['descrizione']
-        @piano.save
-        #var_dump di rails
-        puts YAML::dump(params['nome'])
-        #non vogiamo fare il render di niente
-        render :nothing => true
+        @piano.nome = params[:nome]
+        @piano.descrizione = params[:descrizione]
+
+         if(params.include?(:immagine))
+            params[:immagine]['image'].each do |i|
+                ext = File.extname(i.original_filename)
+                @piano.pianoOre = SecureRandom.uuid + ext
+                #passiamo anche il nome cosi da evitare problemi in fase di cancellazione(nomiunivoci)
+                Piano.savefile(i, @piano.pianoOre)
+            end
+        end
+
+        if(params.include?(:immagine))
+             @piano.save
+        end
+
+        redirect_to '/admin/piani'
 
     end
 
@@ -63,6 +72,30 @@ class Admin::PianiController < ApplicationController
     def getInfo
         @piano = Piano.find(params[:id])
         render :json => @piano
+    end
+
+    def edit
+        @piano = Piano.find(params[:id])
+        render 'admin/piani/pianiEdit'
+    end
+
+    def aggiorna
+        @piano = Piano.find(params[:id])
+        @piano.nome = params[:nome]
+        @piano.descrizione = params[:descrizione]
+
+        if(params.include?(:immagine))
+                params[:immagine]['image'].each do |i|
+                ext = File.extname(i.original_filename)
+                @piano.pianoOre = SecureRandom.uuid + ext
+                #passiamo anche il nome cosi da evitare problemi in fase di cancellazione(nomiunivoci)
+                Piano.savefile(i, @piano.pianoOre)
+            end
+        end
+
+        @piano.save()
+        redirect_to '/admin/piani'
+
     end
 
 end
