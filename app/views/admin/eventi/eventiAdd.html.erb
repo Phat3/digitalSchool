@@ -1,0 +1,33 @@
+<div class="row intestazione">
+    <h3>AGGIUNGI EVENTO</h3>
+</div>
+
+<%= form_for :productimages, url: "/admin/aggiungiEvento", :html => {:multipart => true} do |f| %>
+
+  <div class="form-group">
+    <label >Titolo</label>
+    <input type="text" name="nome" class="form-control"  placeholder="Immetti il titolo dell'evento">
+  </div>
+  <div class="form-group">
+    <label>Data (dd/mm/yyyy)</label>
+    <input type="text" name="data" class="form-control"  placeholder="Immetti la data d'inizio ed eventualmente quella di fine">
+  </div>
+  <div class="form-group">
+    <label >Descrizione</label>
+    <textarea id="body" class='textarea-admin' name='descrizione'></textarea>
+  </div>
+  <p>
+      <%= f.submit  'Salva', :class => 'btn btn-primary pull-right' %>
+    </p>
+
+<% end %>
+
+<script type="text/javascript">
+tinymce.init({
+    selector: "textarea",
+    forced_root_block : 'div'
+ });
+</script>
+
+
+

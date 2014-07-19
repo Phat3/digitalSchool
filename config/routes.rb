@@ -16,6 +16,10 @@ Rails.application.routes.draw do
 
   post '/admin/getInfoPiani', to: 'admin/piani#getInfo'
 
+  get '/admin/pianiEdit/:id', to: 'admin/piani#edit'
+
+  post '/admin/aggiornaPiano/:id', to: 'admin/piani#aggiorna'
+
   get '/admin/corsi', to: 'admin/corsi#index'
 
   get '/admin/corsiAdd', to: 'admin/corsi#corsiAdd'
@@ -60,14 +64,46 @@ Rails.application.routes.draw do
 
   post '/admin/eliminaClasse', to: 'admin/classi#elimina'
 
+  get '/admin/eventi', to: 'admin/eventi#index'
+
+  get '/admin/eventiAdd', to: 'admin/eventi#eventiAdd'
+
+  post '/admin/aggiungiEvento', to: 'admin/eventi#aggiungi'
+
+  post '/admin/eliminaEvento', to: 'admin/eventi#elimina'
+
+  post '/admin/getInfoEvento', to: 'admin/eventi#getInfo'
+
+  get '/admin/eventiEdit/:id', to: 'admin/eventi#edit'
+
+  post '/admin/aggiornaEvento/:id', to: 'admin/eventi#aggiorna'
+
   ###### ROUTES UTENTE ######
 
   get '/history', to: 'main#history'
+
   get '/principles', to: 'main#principles'
+
   get '/rules', to: 'main#rules'
+
   get '/admission', to: 'main#admission'
+
   get '/support', to: 'main#support'
+
   get '/successi', to: 'main#successi'
+
   get '/ufficio_scuola', to: 'main#ufficio'
+
   get '/strutture', to: 'main#strutture'
+
+  get '/eventi', to: 'main#eventi'
+
+  get '/pianiFormativi', to: 'main#piani'
+
+  get '/dettaglioPiano/:id', to: 'main#dettaglioPiano'
+
+  get '/insegnanti', to: 'main#insegnanti'
+
+  get '/dettaglioInsegnante/:id', to: 'main#dettaglioInsegnante'
+
 end

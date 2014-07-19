@@ -3,7 +3,7 @@ class CreatePianos < ActiveRecord::Migration
     create_table :pianos do |t|
       t.string :nome
       t.text :descrizione
-
+      t.string :pianoOre
       t.timestamps
     end
   end
