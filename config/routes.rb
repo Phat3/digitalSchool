@@ -106,4 +106,6 @@ Rails.application.routes.draw do
 
   get '/dettaglioInsegnante/:id', to: 'main#dettaglioInsegnante'
 
+  get '/rappr_genitori', to: 'main#genitori'
+
 end

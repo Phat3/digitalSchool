@@ -65,5 +65,8 @@ class MainController < ApplicationController
     render '/dettaglioInsegnante'
   end
 
+  def genitori
+    render '/rappr_genitori'
+  end
 
-end
+  end
