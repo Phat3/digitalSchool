@@ -97,4 +97,13 @@ Rails.application.routes.draw do
   get '/strutture', to: 'main#strutture'
 
   get '/eventi', to: 'main#eventi'
+
+  get '/pianiFormativi', to: 'main#piani'
+
+  get '/dettaglioPiano/:id', to: 'main#dettaglioPiano'
+
+  get '/insegnanti', to: 'main#insegnanti'
+
+  get '/dettaglioInsegnante/:id', to: 'main#dettaglioInsegnante'
+
 end

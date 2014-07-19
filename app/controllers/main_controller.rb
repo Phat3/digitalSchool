@@ -45,4 +45,25 @@ class MainController < ApplicationController
     render '/eventi'
   end
 
+  def piani
+    @piani = Piano.order(nome: :asc)
+    render '/piani'
+  end
+
+  def dettaglioPiano
+    @piano = Piano.find(params[:id])
+    render '/dettaglioPiano'
+  end
+
+  def insegnanti
+    @insegnanti = Insegnante.order(nome: :asc)
+    render '/insegnanti'
+  end
+
+  def dettaglioInsegnante
+    @insegnante = Insegnante.find(params[:id])
+    render '/dettaglioInsegnante'
+  end
+
+
 end
