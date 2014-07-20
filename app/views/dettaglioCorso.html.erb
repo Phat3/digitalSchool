@@ -1,0 +1,32 @@
+<div class="row contenitore-statico" >
+  <div class="col-sm-1"></div>
+
+  <div class="col-sm-10">
+  <h1 class="titolo-sez-din"><%= @corso.nome %></h1>
+    <div >
+                <div class="row ">
+                  <div class="col-sm-8 testo-giusto">
+                    <p ><%== @corso.descrizione %></p>
+                  </div>
+                  <div class="col-sm-4 details">
+                    <h4> INSEGNANTE </h4>
+                    <a href='/dettaglioInsegnante/<%= Corso.getInsegnante(@corso).id %>'><%= Corso.getInsegnante(@corso).nome %></a>
+                    <br>
+                    <br>
+                    <h4> CLASSE </h4>
+                    <a href='/dettaglioClasse/<%= Corso.getClasse(@corso).id %>'><%= Corso.getClasse(@corso).nome %></a>
+                    <br>
+                    <br>
+                    <h4> PIANO </h4>
+                    <a href='/dettaglioPiano/<%= Corso.getPiano(@corso).id %>'><%= Corso.getPiano(@corso).nome %></a>
+                  </div>
+                </div>
+                <div class ="row" style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+                  <a class='btn btn-school' href="/pdf/dirittidoverigenitori.pdf" >
+                      VAI AL MATERIALE DEL CORSO
+                    </a>
+                </div>
+            </div>
+  </div>
+  <div class="col-sm-1"></div>
+</div>

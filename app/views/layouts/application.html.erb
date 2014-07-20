@@ -40,15 +40,26 @@
              <li class='has-sub last'><a href='#'><span>Per Piano formativo</span></a>
               <ul>
                   <% @piani.each do |des| %>
-                 <li><a href='/classi/<%= des.id %>'><span><%= des.nome %></span></a></li>
+                      <li><a href='/classi/<%= des.id %>'><span><%= des.nome %></span></a></li>
                  <% end %>
               </ul>
              </li>
           </ul>
        </li>
+       <li class='has-sub'><a href='#'><span>Corsi</span></a>
+          <ul>
+             <li><a href='/corsi/all'><span>Tutti</span></a></li>
+             <li class='has-sub last'><a href='#'><span>Per Piano formativo</span></a>
+              <ul>
+                  <% @piani.each do |des| %>
+                      <li><a href='/corsi/<%= des.id %>'><span><%= des.nome %></span></a></li>
+                 <% end %>
+              </ul>
+             </li>
+          </ul>
+      </li>
        <li><a href='/eventi'><span>Eventi</span></a></li>
        <li><a href='/insegnanti'><span>Insegnanti</span></a></li>
-       <li><a href='#'><span>Corsi</span></a></li>
        <li><a href='#'><span>Strutture</span></a></li>
        <li class='last'><a href='/pianiFormativi'><span>Piani Formativi</span></a></li>
     </ul>

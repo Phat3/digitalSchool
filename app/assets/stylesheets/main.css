@@ -393,3 +393,8 @@
 .piccolo{
   font-size: 17px !important;
 }
+
+.details{
+  text-align: center;
+  border-left: 3px solid #ea6645;
+}

@@ -8,4 +8,8 @@ class Corso < ActiveRecord::Base
             @piano = Piano.find(corso.piano_id)
     end
 
+    def self.getClasse(corso)
+            @classe = Classe.find(corso.classe_id)
+    end
+
 end

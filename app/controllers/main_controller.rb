@@ -103,5 +103,25 @@ class MainController < ApplicationController
     render '/rappr_genitori'
   end
 
+    def corsi
+    if(params[:id] == 'all')
+      @all = 'true'
+      @piani = Piano.order(nome: :asc)
+      @corsi = Corso.order(nome: :asc)
+    else
+      @all = 'false'
+      @piani = Piano.order(nome: :asc)
+      @corsi = Corso.where(:piano_id => params[:id])
+    end
+    render '/corsi'
+  end
+
+
+  def dettaglioCorso
+    @piani = Piano.order(nome: :asc)
+    @corso = Corso.find(params[:id])
+    render '/dettaglioCorso'
+  end
+
 
   end
