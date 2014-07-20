@@ -1,0 +1,31 @@
+<div class="row contenitore-statico" >
+  <div class="col-sm-1"></div>
+
+  <div class="col-sm-10">
+  <% if(@all == 'true' ) %>
+  <h1 class="titolo-sez-din">ELENCO CLASSI</h1>
+    <div id="pianiDin">
+          <% @piani.each do |val| %>
+            <h4 class='subtitle-sez-din'><%= val.nome %></h4>
+                <% @classi.each do |des| %>
+                    <% if( des.piano_id  == val.id) %>
+                    <div class="row piccolo">
+                        <a href="/dettaglioClasse/<%= des.id %>"><i class="fa fa-arrow-right"></i> <%= des.nome %></a>
+                    </div>
+                    <% end %>
+                <% end %>
+            <% end %>
+             </div>
+  <% else %>
+  <h1 class="titolo-sez-din">ELENCO CLASSI <%= Piano.find(params[:id]).nome.upcase %></h1>
+    <div id="pianiDin">
+     <% @classi.each do |des| %>
+            <div class="row piccolo">
+                  <a href="/dettaglioClasse/<%= des.id %>"><i class="fa fa-arrow-right"></i> <%= des.nome %></a>
+            </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+  <div class="col-sm-1"></div>
+</div>

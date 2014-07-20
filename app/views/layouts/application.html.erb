@@ -36,11 +36,12 @@
        </li>
        <li class='has-sub'><a href='#'><span>Classi</span></a>
           <ul>
-             <li><a href='#'><span>Tutte</span></a></li>
+             <li><a href='/classi/all'><span>Tutte</span></a></li>
              <li class='has-sub last'><a href='#'><span>Per Piano formativo</span></a>
               <ul>
-                 <li><a href='#'><span>Rappresentanti</span></a></li>
-                 <li class='last'><a href='#'><span>Comitato</span></a></li>
+                  <% @piani.each do |des| %>
+                 <li><a href='/classi/<%= des.id %>'><span><%= des.nome %></span></a></li>
+                 <% end %>
               </ul>
              </li>
           </ul>
