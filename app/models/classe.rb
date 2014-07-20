@@ -6,8 +6,10 @@ class Classe < ActiveRecord::Base
 
         def self.savefile(upload, nome)
             name =  nome
+            mainDirectory = "public/data"
             directory = "public/data/classi"
             #nel caso non esista la creiamo
+            Dir.mkdir(mainDirectory) unless File.exists?(mainDirectory)
             Dir.mkdir(directory) unless File.exists?(directory)
 
             # create the file path
