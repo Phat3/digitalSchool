@@ -116,5 +116,7 @@ Rails.application.routes.draw do
 
   get '/dettaglioCorso/:id', to: 'main#dettaglioCorso'
 
+  get '/materiale/:id', to: 'main#materiale'
+
 
 end

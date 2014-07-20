@@ -2,15 +2,23 @@
   <div class="col-sm-1"></div>
 
   <div class="col-sm-10">
-  <h1 class="titolo-sez-din">ORARIO <%= @classe.nome %></h1>
+  <h1 class="titolo-sez-din"><%= @classe.nome %></h1>
     <div >
-                <div class="row stacca">
-                  <div class="col-sm-2">
+              <div  id="pianiDin">
+                    <h4 class='subtitle-sez-din'> CORSI ATTIVI </h4>
+                    <% @corsi.each do |des| %>
+                          <div class="row piccolo">
+                                <a href="/dettaglioCorso/<%= des.id %>"><i class="fa fa-arrow-right"></i> <%= des.nome %>, <%= Corso.getClasse(des).nome %></a>
+                          </div>
+                    <% end %>
+
+                  <h4 class='subtitle-sez-din'> ORARIO </h4>
+                  <div class="col-sm-3">
                   </div>
-                  <div class="col-sm-8">
-                    <img style="width:100%" src="/data/classi/<%= @classe.orario %>">
+                  <div class="col-sm-6">
+                    <img class='info-img' src="/data/classi/<%= @classe.orario %>">
                   </div>
-                  <div class="col-sm-2">
+                  <div class="col-sm-3">
                   </div>
                 </div>
             </div>

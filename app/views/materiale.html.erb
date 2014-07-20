@@ -1,0 +1,19 @@
+<div class="row contenitore-statico" >
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+  <h1 class="titolo-sez-din">MATERIALE CORSO <%= @corso.nome.upcase %>, <%= Corso.getClasse(@corso).nome %></h1>
+    <div id="pianiDin">
+          <% @tipi.each do |val| %>
+            <h4 class='subtitle-sez-din'><%= val.tipo %></h4>
+                <% @materiale.each do |des| %>
+                    <% if( des.tipo  == val.tipo) %>
+                    <div class="row piccolo">
+                        <a href="/data/materale/<%= des.file %>" target="_blank"><i class="fa fa-arrow-right"></i> <%= des.nome %></a>
+                    </div>
+                    <% end %>
+                <% end %>
+            <% end %>
+             </div>
+</div>
+  <div class="col-sm-1"></div>
+</div>

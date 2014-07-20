@@ -7,7 +7,6 @@
                 <div class="col-sm-8 testo-giusto">
                     <p ><%== @insegnante.bio %></p>
                 </div>
-
                   <div class="col-sm-4 details" >
                       <div class="row">
                             <img style="width:50%" src="/data/insegnanti/<%= @insegnante.foto %>">
@@ -16,6 +15,14 @@
                           <a  class="btn btn-school" href="/data/insegnanti/<%= @insegnante.cv %>" target="_blank">Vedi CV</a>
                       </div>
                   </div>
+    </div>
+    <div  id="pianiDin">
+      <h4 class='subtitle-sez-din'> CORSI INSEGNATI </h4>
+      <% @corsi.each do |des| %>
+            <div class="row piccolo">
+                  <a href="/dettaglioCorso/<%= des.id %>"><i class="fa fa-arrow-right"></i> <%= des.nome %>, <%= Corso.getClasse(des).nome %></a>
+            </div>
+      <% end %>
     </div>
   </div>
   <div class="col-sm-1"></div>

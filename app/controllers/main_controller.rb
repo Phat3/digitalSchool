@@ -75,6 +75,7 @@ class MainController < ApplicationController
   def dettaglioInsegnante
     @piani = Piano.order(nome: :asc)
     @insegnante = Insegnante.find(params[:id])
+    @corsi = Corso.where(:insegnante_id => params[:id])
     render '/dettaglioInsegnante'
   end
 
@@ -95,6 +96,7 @@ class MainController < ApplicationController
   def dettaglioClasse
     @piani = Piano.order(nome: :asc)
     @classe = Classe.find(params[:id])
+    @corsi = Corso.where(:classe_id => params[:id])
     render '/dettaglioClasse'
   end
 
@@ -121,6 +123,14 @@ class MainController < ApplicationController
     @piani = Piano.order(nome: :asc)
     @corso = Corso.find(params[:id])
     render '/dettaglioCorso'
+  end
+
+  def materiale
+    @piani = Piano.order(nome: :asc)
+    @corso = Corso.find(params[:id])
+    @tipi = Materiale.select(:tipo).where(:corso_id => params[:id]).distinct
+    @materiale = Materiale.where(:corso_id => params[:id])
+    render '/materiale'
   end
 
 
