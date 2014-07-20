@@ -78,6 +78,7 @@ class MainController < ApplicationController
     render '/dettaglioInsegnante'
   end
 
+
   def classi
     if(params[:id] == 'all')
       @all = 'true'
@@ -97,5 +98,10 @@ class MainController < ApplicationController
     render '/dettaglioClasse'
   end
 
+  def genitori
+     @piani = Piano.order(nome: :asc)
+    render '/rappr_genitori'
+  end
 
-end
+
+  end
