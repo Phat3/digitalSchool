@@ -1,0 +1,72 @@
+<div class="row contenitore-statico">
+  <div class="col-sm-1"></div>
+
+  <div class="col-sm-10">
+      <h1 class="titolo-sez-din">INFO UTILI</h1>
+      <div id='box-mappa' style="height:200px;"></div>
+      <div class="row contatti">
+        <div class="col-sm-6" style="border-right:2px solid #012951;">
+          <div class="row">
+            <div class="col-sm-3"></div>
+             <div class="col-sm-6">
+                <h4 class="titolo-sez-din" >DOVE SIAMO</h4>
+              </div>
+             <div class="col-sm-3"></div>
+           </div>
+            <p class="testo-giusto">Indirizzo: Via Copernico 47, Milano</p>
+            <p class="testo-giusto">Come raggiungerci:<br> Scendere alla stazione della metropolitana di Sondrio e proseguire per 100m in via Tonale</p>
+          </div>
+          <div class="col-sm-6" >
+            <div class="row">
+              <div class="col-sm-3"></div>
+               <div class="col-sm-6">
+                  <h4 class="titolo-sez-din" >Contatti</h4>
+                </div>
+               <div class="col-sm-3"></div>
+           </div>
+           <p class="testo-giusto">SEGRETERIA: 02 2334576</p>
+           <p class="testo-giusto">PORTINERIA: 02 4356789</p>
+           <p class="testo-giusto">MAIL: info@wilhelm.me</p>
+          </div>
+      </div>
+  </div>
+  <div class="col-sm-1"></div>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=it"></script>
+<script>
+
+function initialize() {
+        //oggetto per ricavare i dati (lat e lng) da indirizzo
+        geocoder = new google.maps.Geocoder();
+
+        //inizializzo la mappa
+        var map_canvas = document.getElementById('box-mappa');
+        var map_options = {
+          center: new google.maps.LatLng(7.693487199999936, 45.0640487),
+          zoom: 15,
+          scrollwheel: false,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(map_canvas, map_options);
+
+
+        //centro la mappa su un indirizzo
+        geocoder.geocode( { 'address': 'via niccolo copernico 47, milano'}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            map.setCenter(results[0].geometry.location);
+
+            var marker = new google.maps.Marker({
+                position: results[0].geometry.location,
+                map: map,
+
+                });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>

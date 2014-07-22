@@ -118,5 +118,7 @@ Rails.application.routes.draw do
 
   get '/materiale/:id', to: 'main#materiale'
 
+  get '/doveSiamo', to: 'main#doveSiamo'
+
 
 end

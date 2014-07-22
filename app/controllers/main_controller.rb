@@ -133,5 +133,11 @@ class MainController < ApplicationController
     render '/materiale'
   end
 
+  def doveSiamo
+    @piani = Piano.order(nome: :asc)
+    render '/doveSiamo'
+  end
+
+
 
   end
