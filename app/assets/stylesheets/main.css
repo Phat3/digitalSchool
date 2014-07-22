@@ -405,3 +405,18 @@
   margin-bottom: 20px;
 }
 
+.strutture-carousel .owl-wrapper-outer{
+  max-height: 300px;
+}
+
+.info-struttura{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.info-struttura .subtitle-sez-din{
+  margin-left: auto;
+  margin-right: auto;
+}
+
