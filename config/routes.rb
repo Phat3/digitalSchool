@@ -96,6 +96,10 @@ Rails.application.routes.draw do
 
   get '/strutture', to: 'main#strutture'
 
+  get '/struttureInterne', to: 'main#struttureInterne'
+
+  get '/struttureEsterne', to: 'main#struttureEsterne'
+
   get '/eventi', to: 'main#eventi'
 
   get '/pianiFormativi', to: 'main#piani'

@@ -49,6 +49,16 @@ class MainController < ApplicationController
     render '/strutture'
   end
 
+   def struttureInterne
+    @piani = Piano.order(nome: :asc)
+    render '/struttureInterne'
+  end
+
+   def struttureEsterne
+    @piani = Piano.order(nome: :asc)
+    render '/struttureEsterne'
+  end
+
   def eventi
     @piani = Piano.order(nome: :asc)
     @eventi = Evento.order(id: :desc)
