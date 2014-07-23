@@ -124,5 +124,7 @@ Rails.application.routes.draw do
 
   get '/doveSiamo', to: 'main#doveSiamo'
 
+  get '/comitati', to: 'main#comitati'
+
 
 end

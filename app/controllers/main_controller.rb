@@ -148,6 +148,10 @@ class MainController < ApplicationController
     render '/doveSiamo'
   end
 
+  def comitati
+    @piani = Piano.order(nome: :asc)
+    render '/comitati'
+  end
 
 
   end
